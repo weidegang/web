@@ -1,0 +1,58 @@
+{
+  "presets": [
+    "react",
+    [
+      "es2017",
+     ],
+    "stage-0",  //包含stage-1到3
+//    "stage-1",
+//    "stage-3",
+    "flow"
+  ],
+  "plugins": [
+//    "react-hot-loader/babel",
+    [
+      "import", {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": true
+      }
+    ],
+    "transform-decorators-legacy",
+    "transform-async-to-generator",
+    "transform-class-properties",
+    "transform-object-assign",
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true
+      }
+    ]
+//    "async-to-promises",
+//    [
+//      "import",
+//      {
+//        "libraryName": "antd",
+//        "style": "css"
+//      }
+//    ]
+  ],
+  "env": {
+//    "development": {
+//      "presets": [
+//        "react-hmre"
+//      ],
+//      "plugins": [
+//        "react-hot-loader/babel"
+//      ]
+//    },
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        "dynamic-import-node"
+      ]
+    }
+  }
+}
