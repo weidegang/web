@@ -36,10 +36,7 @@
 			<!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->
 			<mvc:mapping path="/**" />
 			<!-- 不需要拦截的地址 -->
-			<mvc:exclude-mapping path="/login"/>
-			<mvc:exclude-mapping path="/login/**"/>
-		 	<mvc:exclude-mapping path="/*/login"/>
-			<mvc:exclude-mapping path="/*/login/**"/>
+			<mvc:exclude-mapping path="/**/login/**"/>
 			<bean class="com.web.login.util.SessionInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class SessionInterceptor implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response, Object handler) throws Exception {
+		System.out.println(request.getRequestURI());
 		HttpSession session=request.getSession(true); 
 		//session中获取用户名信息 
 		Object obj = session.getAttribute(LoginConst.LOGIN_NAME); 

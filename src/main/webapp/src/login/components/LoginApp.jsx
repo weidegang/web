@@ -15,6 +15,7 @@ class LoginApp extends Component {
 
   doLogin(){
     let self = this;
+    var $login = $(this.loginBtn).button('loading')
     $.ajax({
       type : "post",
       url : "/web/login/doLogin1",
@@ -23,12 +24,16 @@ class LoginApp extends Component {
         passWord:self.passWord.value,
       },
       async : false,   //注意：此处是同步，不是异步
-      success : function(data){
+      success : (data)=>{
+        $login.button('reset');
         if(data.result =="success"){
           self.loginForm.submit();
         }else{
           self.setState({warn:data.reason});
         }
+      },
+      fail:()=>{
+        $login.button('reset');
       }
     });
   }
@@ -74,7 +79,9 @@ class LoginApp extends Component {
                   <label htmlFor="checkbox1"></label>
                 </div>
                 <span className="text">记住密码</span>
-                <button type="button" onClick={this.doLogin} className="btn btn-default">登录</button>
+                <button type="button" ref={dom =>this.loginBtn = dom} onClick={this.doLogin}
+                        className="btn btn-default"
+                        data-loading-text="正在登录...">登录</button>
               </div>
             </form>
           </div>

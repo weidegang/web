@@ -109,6 +109,27 @@
 	</session-config> 
 	
     <load-on-startup>0</load-on-startup>
+    
+    <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/error-page/500.html</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/error-page/500.html</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error-page/404.html</location>
+  </error-page>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/error-page/403.html</location>
+  </error-page>
+  <error-page>
+    <error-code>503</error-code>
+    <location>/error-page/503.html</location>
+  </error-page>
 
 	<!--
 	<welcome-file-list>  

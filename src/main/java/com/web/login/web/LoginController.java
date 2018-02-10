@@ -37,7 +37,7 @@ public class LoginController {
 	public String doLogin(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		String loginName = (String)request.getSession().getAttribute(LoginConst.LOGIN_NAME);
 		if (StringUtils.isNotEmpty(loginName)){
-			return "forward:/index";
+			return "redirect:/index";
 		}else{
 			String userName = request.getParameter("userName");
 			String passWord = request.getParameter("passWord");
@@ -48,7 +48,7 @@ public class LoginController {
 				return "redirect:/login";
 			}
 			request.getSession().setAttribute("userName", userName);
-			return "forward:/index";
+			return "redirect:/index";
 		}
 	}
 	
@@ -83,8 +83,8 @@ public class LoginController {
 	/* 注销 */
 	@RequestMapping(method = RequestMethod.GET,value="doLogout")
 	public String doLogout(HttpServletRequest request, HttpServletResponse respons) {
-		request.getSession().removeAttribute("userName");        //注销session中的id对象
+//		request.getSession().removeAttribute("userName");        //删除session中的信息对象
 		request.getSession().invalidate(); 
-		return "redirect:/login";
+		return "redirect:/";
 	}
 }
